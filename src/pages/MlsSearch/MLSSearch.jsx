@@ -8,7 +8,7 @@ import MapLoader from '../../components/Loaders/MapLoader';
 import MLSCard from '../../components/MLSCard';
 import { useNavigate } from 'react-router-dom';
 
-function MlsSearch() {
+function MLSSearch() {
 
     const dispatch = useDispatch();
     const { isLoading, mlsData } = useSelector((state) => state.PropertyMangementReducer);
@@ -90,4 +90,4 @@ function MlsSearch() {
     )
 }
 
-export default MlsSearch
+export default MLSSearch
