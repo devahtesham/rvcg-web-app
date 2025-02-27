@@ -1,0 +1,119 @@
+/* RealEstateCard.css */
+.real-estate-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    width: 340px;
+    height: 415px;
+}
+
+.real-estate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-image-container {
+    position: relative;
+}
+
+.property-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.for-sale-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    background-color: #0d6efd;
+    font-weight: 600;
+}
+
+.just-listed-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    background-color: white;
+    color: #333;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.favorite-button {
+    /* position: absolute;
+    top: 10px;
+    right: 10px; */
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    /* color: white; */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.heart-outline {
+    /* color: #000; */
+    /* stroke: rgb(0, 0, 0); */
+    stroke-width: 1;
+    /* fill: transparent; */
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.5));
+}
+
+.heart-filled {
+    color: #ff4d4d;
+    fill: #ff4d4d;
+}
+
+.price-section {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-right: 8px;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.arv {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.location {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.property-features {
+    display: flex;
+    font-size: 0.9rem;
+    color: #333;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.feature i {
+    margin-right: 5px;
+}

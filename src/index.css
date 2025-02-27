@@ -1,0 +1,688 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* GLOBAL */
+:root {
+    --primary-clr: #16BFBF;
+    --secondary-clr: #3635357a;
+    --golden-clr: #ceb17e;
+    --dark-green-clr: #0f8383;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 14px;
+}
+
+a,
+button,
+p {
+    font-family: "Darker Grotesque", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    font-family: "Roboto", serif;
+}
+
+p {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.bg-primary-clr {
+    background-color: var(--primary-clr);
+}
+
+.bg-golden-clr {
+    background-color: var(--golden-clr);
+}
+
+.text-golden-clr {
+    color: var(--golden-clr);
+}
+
+.text-dark-green-clr {
+    color: var(--dark-green-clr);
+}
+
+.text-light-green-clr {
+    color: var(--primary-clr);
+}
+
+.main-heading {
+    font-size: 37px;
+    font-weight: 600;
+    line-height: 43px;
+}
+
+.custom-btn {
+    color: #fff;
+    font-weight: 700;
+    outline: 0;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 7px 23px
+}
+
+.secondary-btn {
+    background: var(--secondary-clr);
+    transition-duration: 500ms;
+}
+
+.secondary-btn:hover {
+    background: var(--primary-clr);
+}
+
+.primary-btn {
+    background: var(--primary-clr);
+}
+
+.logo {
+    width: 100px;
+}
+
+header .nav-items li a {
+    font-size: 20px;
+    color: #fff;
+    transition-duration: 500ms;
+    font-weight: 600;
+}
+
+
+header .nav-items li a:hover {
+    color: var(--primary-clr) !important;
+}
+
+.main-banner {
+    /* min-height: 85vh; */
+    height: 85vh;
+    position: relative;
+
+    /* --mask:
+        radial-gradient(89.44px at 50% calc(100% - 120px), #000 99%, #0000 101%) calc(50% - 80px) 0/160px 100%,
+        radial-gradient(89.44px at 50% calc(100% + 80px), #0000 99%, #000 101%) 50% calc(100% - 40px)/160px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask); */
+
+
+    /* --mask:
+          radial-gradient(169.94px at 50% calc(100% - 228px),#000 99%,#0000 101%) calc(50% - 152px) 0/304px 100%,
+          radial-gradient(169.94px at 50% calc(100% + 152px),#0000 99%,#000 101%) 50% calc(100% - 76px)/304px 100% repeat-x;
+        -webkit-mask: var(--mask);
+                mask: var(--mask); */
+
+    /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 91%); */
+
+
+
+
+}
+
+.contact-us-page .main-banner {
+    height: 55vh;
+}
+
+.main-banner video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0000006b;
+    z-index: -1;
+}
+
+.banner-content {
+    position: relative;
+    transform: translateY(50%);
+}
+
+.banner-content h1 {
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.banner-wavy-shape {
+    bottom: -1px;
+    direction: ltr;
+    left: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.banner-wavy-shape svg {
+    height: 30px;
+    display: block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: calc(100% + 1.3px);
+}
+
+.partner-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.elementor-shape-fill {
+    fill: #fff;
+    transform: rotateY(0deg);
+    transform-origin: center;
+}
+
+.partner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 200px;
+    margin-bottom: 30px;
+}
+
+.partner-box svg {
+    width: 40px;
+    height: 40px;
+}
+
+
+/* search property */
+.search-property-section {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #00233D 0%, #003A65 100%);
+}
+
+.search-property-section .nav-link {
+    color: #fff;
+    background: var(--primary-clr);
+    font-size: 18px;
+    margin: 0 12px;
+}
+
+
+.vimeo-vedio-section .banner-wavy-shape {
+    z-index: 2;
+    pointer-events: none;
+    top: -1px;
+}
+
+.vimeo-vedio-section .banner-wavy-shape svg {
+    fill: #003A65;
+}
+
+.vimeo-vedio-section {
+    position: relative;
+}
+
+.vimeo-vedio-section .elementor-shape-fill {
+    fill: #003A65;
+    transform: rotateX(-185deg);
+}
+
+
+.vimeo-vedio-section {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    background: #000;
+}
+
+.vimeo-vedio-section iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Adjust the wave shape to fit properly */
+.vimeo-vedio-section .banner-wavy-shape {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+}
+
+.vimeo-vedio-section .banner-wavy-shape svg {
+    width: 100%;
+    height: 50px;
+    display: block;
+}
+
+
+
+.services-with-create-listing {
+    background-image: url(./assets/img/services-with-listing.webp);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.services-with-create-listing-2 {
+    background-image: url(./assets/img/services-with-listing-2.jpg);
+}
+
+.main-card-heading {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.city-name-inner-box {
+    position: absolute;
+    background: #00000087;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 600;
+    transition-duration: 500ms;
+}
+
+.city-property-box:hover .city-name-inner-box {
+    background: transparent;
+}
+
+.bordered-section {
+    border-bottom: 1px solid #d3d3d378;
+}
+
+.client-box {
+    flex: 0 0 150px;
+}
+
+section.explore-premium-listing {
+    background-image: url('./assets/img/explore-listing.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.explore-premium-listing-background-overlay {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #00233DDE 0%, #00233D 100%);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.explore-premium-listing .banner-wavy-shape {
+    top: 0;
+    bottom: unset;
+}
+
+.explore-premium-listing .banner-wavy-shape svg {
+    height: 50px;
+    transform: translateX(-50%) rotateY(180deg);
+}
+
+
+.explore-premium-listing .banner-wavy-shape .elementor-shape-fill {
+    fill: #fff;
+    transform-origin: center;
+    transform: rotateX(180deg);
+}
+
+.explore-premium-listing-content {
+    position: relative;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.explore-premium-listing-content p {
+    width: 95%;
+}
+
+footer {
+    background-color: #00233d;
+}
+
+.logo-white img,
+.logo-colourful img {
+    width: 150px;
+}
+
+footer li,
+footer li a {
+    font-size: 19px;
+    font-family: "Darker Grotesque", serif;
+}
+
+.payment-method-icon {
+    width: 250px;
+}
+
+
+header.active {
+    background-color: #fff;
+    /* position: fixed; */
+    top: 0;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    box-shadow: 0 7px 22px 0 #00000047;
+    height: 88px;
+}
+
+header.active .nav-items li a {
+    color: #000 !important;
+}
+
+
+/* ABOUT PAGE */
+.about-bg {
+    background: url(./assets/img/about-bg.webp) no-repeat center center/cover;
+}
+
+.about-bg .bg-overlay {
+    z-index: 0
+}
+
+.about-us-banner p {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.about-process .process-card {
+    flex: 0 0 330px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    padding: 15px;
+    transition-duration: 0.4s;
+    box-shadow: 7px 7px 9px 0 #00000014;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 210px; */
+}
+
+.about-process .process-card h5,
+.about-process .process-card p {
+    text-align: center;
+}
+
+.about-process .process-card h5 {
+    margin-top: 10px;
+}
+
+.why-section {
+    background: #F8F8F8
+}
+
+.opportunities {
+    background: url(./assets/img/opportunity.webp) no-repeat center center/cover;
+}
+
+.opportunity-overlay {
+    background: #000000b8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.member-card {
+    flex: 0 0 232px;
+}
+
+
+.members .after-hover-box {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    background-color: #ffffffcf;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.member-card:hover .after-hover-box {
+    transform: scale(1);
+}
+
+.members-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.side-heading {
+    background-color: #16bfbf;
+    color: #fff;
+    font-weight: 600;
+    padding: 7px 30px;
+    font-size: 20px;
+    border-radius: 28px;
+    text-transform: uppercase;
+}
+
+.property-enquire-form .btn:hover {
+    background-color: #958160;
+}
+
+/* ABOUT PAGE */
+
+
+/* REALTY CATALOG */
+.realty-catalog {
+    background: url(./assets/img/R2.png) no-repeat center center/cover;
+    height: 65vh;
+}
+
+.realty-catalog h1 {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.property-search-input input {
+    padding: 14px;
+    font-size: 15px;
+}
+
+.property-search-icon {
+    position: absolute;
+    right: 16px;
+    transform: translateY(50%);
+    bottom: 50%;
+    z-index: 10;
+    color: #16bfbf;
+}
+
+.property-card {
+    height: 455px;
+    overflow: auto;
+}
+
+.property-card img {
+    height: 240px;
+}
+
+.property-card::-webkit-scrollbar {
+    display: none;
+}
+
+/* REALTY CATALOG */
+
+.login-form-screen .card {
+    width: 30rem;
+}
+
+.login-form-screen .icon-input svg {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+}
+
+.login-form-screen input {
+    padding: 8px 46px 8px 45px;
+    border-radius: 12px;
+}
+
+.login-form-screen .icon-input svg.password-show-hide {
+    position: absolute;
+    top: 14px;
+    left: 91%;
+}
+
+.login-form-screen .btn:hover {
+    background-color: #32b1b1;
+}
+
+.login-form-screen .register-link {
+    color: var(--primary-clr) !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.lead-type-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 23rem;
+    box-shadow: 0 0 51px #0000005e;
+    transform: translate(55rem);
+    transition-duration: .5s
+}
+
+.lead-type-drawer.open {
+    transform: translate(0)
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.search-suggession-inner::-webkit-scrollbar {
+    width: 8px
+}
+
+.search-suggession-inner::-webkit-scrollbar-track {
+    background: rgba(33, 37, 41, .9) !important;
+    border-radius: 15px
+}
+
+.search-suggession-inner::-webkit-scrollbar-thumb {
+    background: var(--primary-clr) !important;
+    border-radius: 15px
+}
+
+.bg-main-clr {
+    background-color: var(--primary-clr) !important;
+}
+
+.bg-blue-new-clr {
+    background-color: #00233d !important;
+}
+
+.custom-price-filter a {
+    font-size: 18px;
+}
+
+.property-names {
+    transition-duration: .5s;
+}
+
+.property-names:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    color: var(--primary-clr);
+}
+
+.lead-type-drawer label {
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.property-listing-all {
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    overflow: auto;
+}
+
+.why-section .price label{
+    font-size: 15px;
+    font-weight: 400;
+}
