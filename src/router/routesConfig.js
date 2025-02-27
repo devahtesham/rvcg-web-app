@@ -1,5 +1,5 @@
 import React from "react"
-import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, MLSSearch, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty } from "../pages"
+import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, MLSSearch, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty } from "../pages/index.jsx"
 import CityPropertyListing from "../pages/CityPropertyListing/CityPropertyListing"
 import RegisterForm from "../pages/RegisterForm/RegisterForm"
 
