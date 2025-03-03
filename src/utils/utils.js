@@ -10,7 +10,29 @@ export const NAVIGATION_MENU = [
     },
     {
         name: "Resources",
-        url: "/resources"
+        url: "/resources",
+        nested_routes: [
+            {
+                id:'a1',
+                name: "Sell With Us",
+                url: "/sell-with-us",
+            },
+            {
+                id:'a2',
+                name: "Buy From Us",
+                url: "/buy-from-us",
+            },
+            {
+                id:'a3',
+                name: "Referral Associate",
+                url: "/referral-associates",
+            },
+            {
+                id:'a4',
+                name: "NFTs",
+                url: "/nft",
+            },
+        ]
     },
     {
         name: "Our Listing",

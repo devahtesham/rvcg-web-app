@@ -5,16 +5,19 @@ import { Button, Col, Dropdown, Form, FormControl, InputGroup, Row } from 'react
 
 import MapLoader from '../../../components/Loaders/MapLoader';
 import { useDispatch, useSelector } from 'react-redux';
-import { FilterMapListing, GetAllCitiesForMap, GetAllProperties, GetLeadType, GetPropertyTypes } from '../../../store/slices/propertyManagementSlice/propertyManagementSlice';
+import { AddToFav, DeletePropertyFromFav, FilterMapListing, GetAllCitiesForMap, GetAllProperties, GetLeadType, GetPropertyTypes, ViewFavProperties } from '../../../store/slices/propertyManagementSlice/propertyManagementSlice';
 import { BiSearch } from 'react-icons/bi';
 import SearchLoader from '../../../components/Loaders/SearchLoader';
-import { BATHROOMS, BEDROOMS, cleanPriceVal, DEFAULT_LAT, DEFAULT_LONG, priceOptions } from '../../../data/global';
+import { BATHROOMS, BEDROOMS, cleanPriceVal, DEFAULT_LAT, DEFAULT_LONG, getUser, priceOptions } from '../../../data/global';
 import { SlLocationPin } from "react-icons/sl";
 import { RxCross2 } from "react-icons/rx";
 import { PropertyContext } from '../../../context/PropertyContext';
 import DropDownComp from '../../../components/UI/DropDownComp/DropDownComp';
 import CheckBoxComp from '../../../components/UI/CheckBoxComp/CheckBoxComp';
 import PropertyListingCard from '../../../components/PropertyListingCard/PropertyListingCard';
+import { FaHeart, FaRegHeart } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
+import { errorNotify, successNotify } from '../../../Toastify/Toastify';
 
 
 
@@ -22,17 +25,72 @@ const DisplayMap = () => {
     const dispatch = useDispatch()
     const [isMapLoading, setIsMapLoading] = useState(false)
     const [other_features, setOtherFeatures] = useState([])    // specially for map
-    const [favorites, setFavorites] = useState({});
-    const [allMapProperties, setAllMapProperties] = useState([])
+    const [favorites, setFavorites] = useState([]);
 
-    
+
+    const [allMapProperties, setAllMapProperties] = useState([])
+    const navigate = useNavigate()
+
+    // console.log("[favCount]", favCount)
+
+    useEffect(() => {
+        // console.log('i am run')
+        dispatch(ViewFavProperties())
+            .then((response) => {
+                setFavorites(response.payload?.map(property => property.id))
+            })
+    }, [])
 
     const toggleFavorite = (id) => {
-        setFavorites(prev => ({
-            ...prev,
-            [id]: !prev[id]
-        }));
+        const { token } = getUser();
+        if (!token) {
+            navigate('/login')
+        } else {
+            console.log('[favorites]', favorites)
+            if (!favorites.includes(id)) {
+                // means add to fav
+                dispatch(AddToFav({ listing_id: id }))
+                    .then((response) => {
+                        console.log('[response Add]', response)
+                        if (response.meta.requestStatus === "fulfilled") {
+                            successNotify("Added to Favourites !")
+                            setFavorites((prev) => [...prev, id])
+                        } else {
+                            errorNotify(response.payload)
+
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                        errorNotify(error)
+                    })
+            } else {
+                // remove ki call
+                dispatch(DeletePropertyFromFav(id))
+                    .then((response) => {
+                        console.log('[response Delete]', response)
+                        const filteredItems = favorites.filter((favId) => favId !== id);
+                        setFavorites([...filteredItems])
+                        // if (response.meta.requestStatus === "fulfilled") {
+                        //     successNotify("Added to Favourites !")
+                        // } else {
+                        //     errorNotify(response.payload)
+
+                        // }
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                        errorNotify(error)
+                    })
+            }
+
+
+
+        }
+
     };
+
+
 
 
 
@@ -71,8 +129,8 @@ const DisplayMap = () => {
     const [selectedPrice, setSelectedPrice] = useState("$0");
     const [customPrice, setCustomPrice] = useState("");
 
-    console.log("QUERY",Object.keys(query).length)
-    
+    // console.log("QUERY", Object.keys(query).length)
+
 
     useEffect(() => {
         dispatch(GetLeadType())
@@ -111,7 +169,7 @@ const DisplayMap = () => {
 
     // Initialize the map
     function initMap(allProperty, currentLat, currentLong) {
-        console.log("I am INIT MAp",allProperty)
+        // console.log("I am INIT MAp", allProperty)
         setIsMapLoading(false)
         map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: currentLat ? +currentLat : DEFAULT_LAT, lng: currentLong ? +currentLong : DEFAULT_LONG }, // San Fracisco
@@ -443,7 +501,7 @@ const DisplayMap = () => {
                 anchor: new google.maps.Point(20, 40),
             }
         };
-        console.log('[allProperty]', allProperty)
+        // console.log('[allProperty]', allProperty)
 
         allProperty.length > 0 && allProperty.forEach(house => {
 
@@ -641,7 +699,7 @@ const DisplayMap = () => {
         }
         setQueryCity(city)
 
-        console.log('[objToSend]', objToSend)
+        // console.log('[objToSend]', objToSend)
 
 
         dispatch(FilterMapListing(objToSend))
@@ -696,6 +754,41 @@ const DisplayMap = () => {
             const filteredItems = other_features.filter(item => item !== Number(e.target.name));
             console.log('[filteredItems]', filteredItems)
             setOtherFeatures(filteredItems)
+        }
+    }
+
+    const savePropertyHandler = (id) => {
+        console.log('[id]', id)
+        const payload = {
+            listing_id: id,
+            is_favourite: 1
+        }
+
+        dispatch(AddToFav(payload))
+            .then((response) => {
+                console.log('[response]', response)
+                if (response.meta.requestStatus === "fulfilled") {
+                    successNotify("Added to Favourites !")
+                } else {
+                    errorNotify(response.payload)
+
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                errorNotify(error)
+            })
+
+
+    }
+
+    const viewFavourites = () => {
+        const { token } = getUser();
+        if (!token) {
+            navigate('/login')
+        } else {
+            navigate('/favorites')
+
         }
     }
 
@@ -898,16 +991,20 @@ const DisplayMap = () => {
                     </section>
                 </Col>
                 <Col md={5}>
+                    <div className="property-cards-header d-flex justify-content-end mt-5">
+                        <button type='button' className='btn bg-main-clr text-white d-flex align-items-center gap-2 me-3 mt' onClick={viewFavourites}>
+                            <FaRegHeart className="heart-outline" /> ({favorites.length}) View
+                        </button>
+                    </div>
                     {/*  */}
-                    <section className='mt-5 property-listing-all'>
-                        {isLoading || isMapLoading ? <div className='w-100 vh-100 d-flex justify-content-center align-items-center'><MapLoader /></div> :  !queryCity ? <h2>No Property Found !</h2> : (
+                    <section className='mt-4 property-listing-all'>
+                        {isLoading || isMapLoading ? <div className='w-100 vh-100 d-flex justify-content-center align-items-center'><MapLoader /></div> : !queryCity ? <h2>No Property Found !</h2> : (
 
                             allMapProperties.map(property => (
 
                                 <PropertyListingCard
-                                    key={property.id}
                                     property={property}
-                                    isFavorite={!!favorites[property.id]}
+                                    isFavorite={favorites.includes(property.id)}
                                     onFavoriteToggle={() => toggleFavorite(property.id)}
                                     onClick={() => console.log(`Clicked on property ${property.id}`)}
                                 />

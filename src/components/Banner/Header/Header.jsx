@@ -6,12 +6,18 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getUser, removeUser, ROLE_MAPPER } from "../../../data/global"
 import { DASHBOARD_URL } from "../../../config/service"
+import ARROW from "./../../../assets/img/resources-arrow.png"
 
 
 export default function Header() {
     const { pathname } = useLocation();
     const [isActive, setIsActive] = useState(false);
     const navigate = useNavigate()
+    const [isUpArrow, setIsUpArrow] = useState(false)
+
+    useEffect(() => {
+       setIsUpArrow(false)
+    }, [])
 
     const handleScroll = () => {
         if (window.scrollY > 0) {
@@ -36,9 +42,16 @@ export default function Header() {
         navigate('/login')
     }
 
-    const gotoDashboard = ()=>{
+    const gotoDashboard = () => {
         window.location.href = DASHBOARD_URL
     }
+
+    const resourcesSubMenusHandler = () => {
+        // console.log("Click !!!")
+        setIsUpArrow(!isUpArrow)
+    }
+
+
     return (
         <header className={`${isActive || pathname !== '/' ? 'active' : ''}`}>
             <div className="container-fluid">
@@ -52,9 +65,45 @@ export default function Header() {
                         <ul className="nav-items d-flex align-items-center gap-4 m-0" >
                             {
                                 NAVIGATION_MENU.map((navItem, i) => (
-                                    <li key={i}>
-                                        <NavLink to={navItem.url}>{navItem.name}</NavLink>
-                                    </li>
+                                    navItem.name === 'Resources' ? (
+                                        <div className="d-flex align-items-center">
+                                            <li key={i} className="resources-nav-item position-relative me-3" onClick={resourcesSubMenusHandler}>
+                                                <NavLink>{navItem.name}</NavLink>
+                                                {
+                                                    isUpArrow && (
+                                                        <div className="resources-dropdown text-white">
+                                                            <ul className="list-unstyled mt-2">
+                                                                {
+                                                                    navItem.nested_routes.map((subItem) => (
+
+                                                                        <li className="mb-3 cursor-pointer" key={subItem.id}>
+                                                                            <NavLink to={subItem.url} className={"text-white"}>{subItem.name}</NavLink>
+                                                                        </li>
+
+                                                                    ))
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    )
+                                                }
+                                            </li>
+                                            {
+                                                !isUpArrow ? (
+                                                    <span className="cursor-pointer arrowImg" onClick={resourcesSubMenusHandler}>
+                                                        <img src={ARROW} alt="" width={10} height={10} />
+                                                    </span>
+                                                ) : (
+                                                    <span className="cursor-pointer arrowImg arrowImgDown" onClick={resourcesSubMenusHandler}>
+                                                        <img src={ARROW} alt="" width={10} height={10} />
+                                                    </span>
+                                                )
+                                            }
+
+                                        </div>
+                                    ) :
+                                        <li key={i}>
+                                            <NavLink to={navItem.url}>{navItem.name}</NavLink>
+                                        </li>
                                 ))
                             }
                             <li>

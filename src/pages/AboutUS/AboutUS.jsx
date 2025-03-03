@@ -11,15 +11,9 @@ import DropDownComp from "../../components/UI/DropDownComp/DropDownComp";
 import MultiImageUpload from "../../components/MultiImageUploader/MultiImageUploader";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FileUpload, GetAllCities, GetPropertyFeatures, GetPropertyStatuses, GetPropertyTypes } from "../../store/slices/propertyManagementSlice/propertyManagementSlice";
+import { EvaluateProperty, FileUpload, GetAllCities, GetPropertyFeatures, GetPropertyStatuses, GetPropertyTypes } from "../../store/slices/propertyManagementSlice/propertyManagementSlice";
 import { OWNERSHIP_TYPE } from "../../data/global";
-import { successNotify } from "../../Toastify/Toastify";
-
-
-
-
-
-
+import { errorNotify, successNotify } from "../../Toastify/Toastify";
 
 
 export default function AboutUS() {
@@ -37,7 +31,6 @@ export default function AboutUS() {
     square_foot: '',
     bedrooms: '',
     bathrooms: '',
-    image_ids: [],
     owner_name: '',
     owner_age: '',
     ownership_type: '',
@@ -61,7 +54,6 @@ export default function AboutUS() {
 
   }
   const handleMultiImgSelect = (files) => {
-
     files.map(file => {
       let formData = new FormData();
       formData.append('file', file);
@@ -76,9 +68,42 @@ export default function AboutUS() {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    successNotify("Details has been Submitted !")
-    console.log('[details]',details)
 
+    const payload = {
+      ...details,
+      image_ids: propertyImages
+    }
+
+    dispatch(EvaluateProperty(payload))
+      .then((response) => {
+        if (response.meta.requestStatus === "fulfilled") {
+          successNotify("Details has been Submitted !")
+          setDetails({
+            title: '',
+            address: '',
+            city: '',
+            country: '',
+            property_type: '',
+            price: '',
+            square_foot: '',
+            bedrooms: '',
+            bathrooms: '',
+            owner_name: '',
+            owner_age: '',
+            ownership_type: '',
+            owner_email: '',
+            govt_id_proof: '',
+            owner_contact: '',
+          })
+        } else {
+          errorNotify(response?.payload)
+
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        errorNotify(error)
+      })
   }
 
 

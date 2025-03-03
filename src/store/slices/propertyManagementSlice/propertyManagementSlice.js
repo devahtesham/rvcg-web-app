@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL, BASE_URL_AUTH } from "../../../config/service";
-import { displayTime, DUMMY_CITY_DATA, formatDateForUI } from "../../../data/global";
+import { displayTime, DUMMY_CITY_DATA, formatDateForUI, getUser } from "../../../data/global";
 
 
 const INITIAL_STATE = {
@@ -593,7 +593,10 @@ export const GetAllProperties = createAsyncThunk('/property-listings/GET', async
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
-        const response = await axios.get(`${BASE_URL}/website/listing`, { headers });
+        const { token } = getUser()
+        let url = token ? `${BASE_URL}/website/listings/auth` : `${BASE_URL}/website/listing`
+
+        const response = await axios.get(url, { headers });
         return response.data
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
@@ -1258,8 +1261,10 @@ export const FilterMapListing = createAsyncThunk('/listings/search/GET', async (
         // const query = `${cityQuery}${priceQuery}${propertyTypeQuery}${bedQuery}${bathQuery}`
 
 
+        const { token } = getUser()
+        let url = token ? `${BASE_URL}/website/listings/auth/search` : `${BASE_URL}/website/listings/search`
 
-        const response = await axios.post(`${BASE_URL}/website/listings/search`, payload, { headers });
+        const response = await axios.post(url, payload, { headers });
         return response.data
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
@@ -1291,7 +1296,7 @@ export const ViewFavProperties = createAsyncThunk('/saved-properties/GET', async
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
         const response = await axios.get(`${BASE_URL_AUTH}/saved-properties`, { headers });
-        return response.data.savedProperties
+        return response.data
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
     }
@@ -1427,6 +1432,35 @@ export const FilterMLSData = createAsyncThunk('/mls/filter-data/POST', async (pa
 })
 
 // POST
+export const SubmitContactForm = createAsyncThunk('/website/contact-form/POST', async (payload, { rejectWithValue }) => {
+    // 
+    try {
+        const headers = {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+        const response = await axios.post(`${BASE_URL}/website/contact-form`, payload, { headers });
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
+    }
+})
+
+export const EvaluateProperty = createAsyncThunk('/website/property-valuation/POST', async (payload, { rejectWithValue }) => {
+    // 
+    try {
+        const headers = {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+        const response = await axios.post(`${BASE_URL}/website/property-valuation`, payload, { headers });
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
+    }
+})
+
+// POST
 export const FileUpload = createAsyncThunk('/temp_files/POST', async (payload, { rejectWithValue }) => {
     // 
     try {
@@ -1434,7 +1468,7 @@ export const FileUpload = createAsyncThunk('/temp_files/POST', async (payload, {
             'Accept': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
-        const response = await axios.post(`${BASE_URL}/website/temp_files`, payload, { headers });
+        const response = await axios.post(`${BASE_URL_AUTH}/temp_files`, payload, { headers });
         return response.data.data
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')

@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow-x: hidden !important;
+}
+
 p {
     margin: 0;
 }
@@ -325,6 +329,7 @@ header .nav-items li a:hover {
     font-size: 32px;
     font-weight: 600;
     transition-duration: 500ms;
+    z-index: 1;
 }
 
 .city-property-box:hover .city-name-inner-box {
@@ -409,9 +414,9 @@ footer li a {
 
 header.active {
     background-color: #fff;
-    /* position: fixed; */
+    position: sticky;
     top: 0;
-    z-index: 4;
+    z-index: 10;
     left: 0;
     right: 0;
     box-shadow: 0 7px 22px 0 #00000047;
@@ -426,6 +431,16 @@ header.active .nav-items li a {
 /* ABOUT PAGE */
 .about-bg {
     background: url(./assets/img/about-bg.webp) no-repeat center center/cover;
+}
+
+.about-bg.contact-page {
+    background: url(./assets/img/contact-bg.png) no-repeat center center/cover;
+}
+.about-bg.sell-property {
+    background: url(./assets/img/sell-bg.png) no-repeat center center/cover;
+}
+.about-bg.buy-property {
+    background: url(./assets/img/buy-bg.png) no-repeat center center/cover;
 }
 
 .about-bg .bg-overlay {
@@ -467,6 +482,9 @@ header.active .nav-items li a {
 
 .opportunities {
     background: url(./assets/img/opportunity.webp) no-repeat center center/cover;
+}
+.opportunities.referral {
+    background: url(./assets/img/referral-bg.webp) no-repeat center center/cover;
 }
 
 .opportunity-overlay {
@@ -616,7 +634,8 @@ header.active .nav-items li a {
     width: 23rem;
     box-shadow: 0 0 51px #0000005e;
     transform: translate(55rem);
-    transition-duration: .5s
+    transition-duration: .5s;
+    z-index: 12;
 }
 
 .lead-type-drawer.open {
@@ -682,7 +701,102 @@ header.active .nav-items li a {
     overflow: auto;
 }
 
-.why-section .price label{
+.why-section .price label {
     font-size: 15px;
     font-weight: 400;
+}
+
+.resources-dropdown {
+    font-size: 17px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    padding: 16px;
+    width: 215px;
+    height: 200px;
+    background-color: #00233dd4;
+    font-weight: 500;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.resources-dropdown li {
+    transition-duration: 0.5s;
+}
+
+.resources-nav-item {
+    position: relative;
+}
+
+/* .resources-nav-item::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-image: url(/src/assets/img/resources-arrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: -18px;
+    bottom: 8px;
+    cursor: pointer;
+} */
+
+.arrowImgDown {
+    transform: rotate(180deg);
+}
+
+header.active .nav-items .resources-nav-item li a {
+    color: #fff !important;
+}
+
+header.active .nav-items .resources-nav-item li a:hover {
+    color: var(--primary-clr) !important;
+    transform: translateY(-2px);
+}
+
+.arrowImg {
+    background: white;
+    display: flex;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.process-card{
+    transition-duration: .5s;
+}
+
+.process-card:hover{
+    transform: translateY(-10px);
+}
+
+.faq-sec .custom-accordion .accordion-header {
+    background-color: var(--golden-clr) !important
+    /* Light Grey Background */
+}
+.nft-section{
+    background-color: #e6e6e6;
+}
+
+.why-nft-sec{
+    background: url(./assets/img/nft-bg-img.png) no-repeat center center/cover;
+    padding: 50px 0;
+}
+
+.why-nft-sec .process-card{
+    flex: 0 0 273px;
+}
+
+.about-process {
+    border-radius: 10px;
+}
+
+.contact-box .content a{
+    color: var(--dark-green-clr) !important;
+    font-weight: 700;
+    font-size: 20px;
+}
+.contact-box .content p{
+    
+    font-size: 23px;
 }

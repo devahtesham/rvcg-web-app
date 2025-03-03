@@ -2,6 +2,7 @@ import React from "react"
 import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, MLSSearch, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty } from "../pages/index.jsx"
 import CityPropertyListing from "../pages/CityPropertyListing/CityPropertyListing"
 import RegisterForm from "../pages/RegisterForm/RegisterForm"
+import Favourites from "../pages/Favourites/Favourites.jsx"
 
 
 
@@ -78,6 +79,14 @@ export const PUBLIC_ROUTES = [
         path: '/city/:name',
         Component: CityPropertyListing
     },
+
+    {
+        key: "favorites",
+        path: '/favorites',
+        Component: Favourites
+    },
+
+
 
 
 ]

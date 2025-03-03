@@ -562,13 +562,13 @@ export const OWNERSHIP_TYPE = [
 export const FAQ_DATA = [
     {
         category: "Property Management",
-        question: "How can I list my property on the platform?",
-        answer: "You can list your property by navigating to the 'Add Property' section in your dashboard. Fill in the required details, upload images, set pricing, and submit for approval."
+        question: "Do I have to move out immediately if I sell my house to you?",
+        answer: "No! We’ll work with you and your closing terms. We understand that sometimes you want to sell your house quickly but still need to get a few other details in order before you’re able to move out. You can stay in your house for up to 6 full months if you need."
     },
     {
         category: "Lead Management",
-        question: "How does the lead management system work?",
-        answer: "Our lead management system captures inquiries from buyers and sellers, allowing you to track their activity, follow up via email or phone, and convert them into successful deals."
+        question: "How do you determine the price of my house?",
+        answer: "We’ll complete a walkthrough and conduct a comprehensive home assessment to evaluate the condition of your home. Our team of underwriting experts will use that information to determine the fair market value of your house."
     },
     {
         category: "Messaging & Chat",
@@ -577,13 +577,13 @@ export const FAQ_DATA = [
     },
     {
         category: "Email Campaigns",
-        question: "Can I send email campaigns to my leads?",
-        answer: "Absolutely! Our platform allows you to create and send bulk email campaigns to your leads to keep them engaged with the latest property listings and offers."
+        question: "What condition does my house have to be in?",
+        answer: "We purchase properties as-is which means you don’t have to worry about fixing or changing anything just to put it on the market. We can fix anything big or small so leave the work up to us."
     },
     {
         category: "Skip Trace",
-        question: "What is Skip Trace, and how does it help?",
-        answer: "Skip Trace helps you find property owner details, including contact information, making it easier to reach out to potential sellers or buyers."
+        question: "Do you pay in cash?",
+        answer: "YES! We pay all cash for every property that we purchase."
     },
     {
         category: "MLS Data",
@@ -592,8 +592,8 @@ export const FAQ_DATA = [
     },
     {
         category: "User Management",
-        question: "Can I manage multiple users on my account?",
-        answer: "Yes, our platform allows admin users to manage agents, brokers, and other team members with role-based access."
+        question: "What other benefits do you offer?",
+        answer: "We cover all closing costs if you work with one of our preferred closing attorneys."
     }
 ];
 
@@ -622,6 +622,267 @@ export const ROLE_MAPPER = {
     investor: "Investor",
     vendor: "Vendor",
 }
+
+export const DUMMY_FAV = [
+    {
+        "id": 166,
+        "title": "215 Country Club Rd",
+        "description": "This is Faslamp Quarter",
+        "city_id": 139,
+        "country_id": 185,
+        "property_type_id": 1,
+        "property_status_id": 1,
+        "listing_date": "2025-02-22 00:00:00",
+        "price": "120000.00",
+        "square_foot": "1200.00",
+        "parking": null,
+        "year_built": 2025,
+        "lot_size": "20.00",
+        "longitude": "-117.16000556945801",
+        "latitude": "32.71147770079216",
+        "school_district": null,
+        "walkability_score": null,
+        "crime_rate": null,
+        "roi": 18.909991742361683,
+        "monthly_rent": "15000.00",
+        "cap_rate": "20.00",
+        "geolocation_coordinates": null,
+        "zip_code": "02255",
+        "area": null,
+        "gdrp_agreement": "https://rvcg-git.designsbits.com/uploads/Listings/Image/gdrp/1740205715_67b96e9369fac.png",
+        "address": "San Diego Heights, IL 60411",
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "half_bathrooms": null,
+        "arv": 144000,
+        "gross_margin": null,
+        "estimated_roi": null,
+        "repair_cost": "500.00",
+        "wholesale_fee": "600.00",
+        "price_per_square_feet": "120.00",
+        "user_id": 1,
+        "created_at": "2025-02-22T06:26:22.000000Z",
+        "updated_at": "2025-02-22T06:28:35.000000Z",
+        "is_featured": 1,
+        "is_approved": true,
+        "moa": 99700,
+        "owner_full_name": "Shaun",
+        "lead_types_id": 25,
+        "Owner_Property_Documents_Url": "https://rvcg-git.designsbits.com/uploads/listings/Owner_Property_Documents",
+        "city": {
+            "id": 139,
+            "city_name": "San Diego"
+        },
+        "media": [
+            {
+                "id": 52,
+                "listing_id": 166,
+                "file_name": "1740205582_67b96e0e4b321.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740205582_67b96e0e4b321.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:26:22.000000Z",
+                "updated_at": "2025-02-22T06:26:22.000000Z"
+            },
+            {
+                "id": 53,
+                "listing_id": 166,
+                "file_name": "1740205582_67b96e0e4ba62.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740205582_67b96e0e4ba62.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:26:22.000000Z",
+                "updated_at": "2025-02-22T06:26:22.000000Z"
+            },
+            {
+                "id": 54,
+                "listing_id": 166,
+                "file_name": "1740205582_67b96e0e4c0ab.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740205582_67b96e0e4c0ab.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:26:22.000000Z",
+                "updated_at": "2025-02-22T06:26:22.000000Z"
+            }
+        ],
+        "user": {
+            "id": 1,
+            "name": "Shazaib Testt"
+        },
+        "country": {
+            "id": 185,
+            "country_name": "United States of America"
+        },
+        "property_type": {
+            "id": 1,
+            "title": "Single Family"
+        },
+        "property_status": {
+            "id": 1,
+            "status": "Sold"
+        },
+        "features": [
+            {
+                "id": 1,
+                "name": "Garrage",
+                "created_at": "2025-01-20T14:41:46.000000Z",
+                "updated_at": "2025-01-20T14:41:46.000000Z",
+                "pivot": {
+                    "listings_id": 166,
+                    "feature_id": 1
+                }
+            },
+            {
+                "id": 8,
+                "name": "Sauna",
+                "created_at": null,
+                "updated_at": null,
+                "pivot": {
+                    "listings_id": 166,
+                    "feature_id": 8
+                }
+            }
+        ],
+        "leadtypes": {
+            "id": 25,
+            "type_name": "absentee owner",
+            "created_at": "2025-02-17T09:00:51.000000Z",
+            "updated_at": "2025-02-18T07:23:01.000000Z",
+            "description": "Property owners who do not live in the property."
+        }
+    },
+    {
+        "id": 167,
+        "title": "207 Country Club Rd",
+        "description": "This is East Village",
+        "city_id": 139,
+        "country_id": 185,
+        "property_type_id": 3,
+        "property_status_id": 1,
+        "listing_date": "2025-02-22 00:00:00",
+        "price": "150000.00",
+        "square_foot": "1200.00",
+        "parking": null,
+        "year_built": 2025,
+        "lot_size": "20.00",
+        "longitude": "-117.1538257598877",
+        "latitude": "32.71371643564367",
+        "school_district": null,
+        "walkability_score": null,
+        "crime_rate": null,
+        "roi": -17.192982456140353,
+        "monthly_rent": "15000.00",
+        "cap_rate": "12.00",
+        "geolocation_coordinates": null,
+        "zip_code": "0255",
+        "area": null,
+        "gdrp_agreement": "https://rvcg-git.designsbits.com/uploads/Listings/Image/gdrp/1740206643_67b97233ef971.pdf",
+        "address": "San Deigo Heights, IL 60411",
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "half_bathrooms": null,
+        "arv": 141600,
+        "gross_margin": null,
+        "estimated_roi": null,
+        "repair_cost": "10000.00",
+        "wholesale_fee": "11000.00",
+        "price_per_square_feet": "118.00",
+        "user_id": 1,
+        "created_at": "2025-02-22T06:44:03.000000Z",
+        "updated_at": "2025-02-22T06:44:49.000000Z",
+        "is_featured": 1,
+        "is_approved": true,
+        "moa": 78120,
+        "owner_full_name": "Mickel",
+        "lead_types_id": 26,
+        "Owner_Property_Documents_Url": "https://rvcg-git.designsbits.com/uploads/listings/Owner_Property_Documents",
+        "city": {
+            "id": 139,
+            "city_name": "San Diego"
+        },
+        "media": [
+            {
+                "id": 55,
+                "listing_id": 167,
+                "file_name": "1740206643_67b97233f08f0.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740206643_67b97233f08f0.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:44:03.000000Z",
+                "updated_at": "2025-02-22T06:44:03.000000Z"
+            },
+            {
+                "id": 56,
+                "listing_id": 167,
+                "file_name": "1740206643_67b97233f0e52.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740206643_67b97233f0e52.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:44:03.000000Z",
+                "updated_at": "2025-02-22T06:44:03.000000Z"
+            },
+            {
+                "id": 57,
+                "listing_id": 167,
+                "file_name": "1740206643_67b97233f13f1.jpg",
+                "file_url": "https://rvcg-git.designsbits.com/uploads/Listings/Image/1740206643_67b97233f13f1.jpg",
+                "media_type": "image/jpeg",
+                "created_at": "2025-02-22T06:44:03.000000Z",
+                "updated_at": "2025-02-22T06:44:03.000000Z"
+            }
+        ],
+        "user": {
+            "id": 1,
+            "name": "Shazaib Testt"
+        },
+        "country": {
+            "id": 185,
+            "country_name": "United States of America"
+        },
+        "property_type": {
+            "id": 3,
+            "title": "Townhouse"
+        },
+        "property_status": {
+            "id": 1,
+            "status": "Sold"
+        },
+        "features": [
+            {
+                "id": 1,
+                "name": "Garrage",
+                "created_at": "2025-01-20T14:41:46.000000Z",
+                "updated_at": "2025-01-20T14:41:46.000000Z",
+                "pivot": {
+                    "listings_id": 167,
+                    "feature_id": 1
+                }
+            },
+            {
+                "id": 8,
+                "name": "Sauna",
+                "created_at": null,
+                "updated_at": null,
+                "pivot": {
+                    "listings_id": 167,
+                    "feature_id": 8
+                }
+            },
+            {
+                "id": 12,
+                "name": "Air Conditioning",
+                "created_at": null,
+                "updated_at": null,
+                "pivot": {
+                    "listings_id": 167,
+                    "feature_id": 12
+                }
+            }
+        ],
+        "leadtypes": {
+            "id": 26,
+            "type_name": "cash buyer",
+            "created_at": "2025-02-17T09:21:46.000000Z",
+            "updated_at": "2025-02-18T07:23:31.000000Z",
+            "description": "Owners who have likely paid cash for their property."
+        }
+    }
+]
 
 
 

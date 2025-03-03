@@ -17,7 +17,7 @@ const PropertyListingCard = ({
     isJustListed = true,
 }) => {
     return (
-        <Card className="real-estate-card" onClick={onClick} key={key}>
+        <Card className="real-estate-card" onClick={onClick} key={property.id}>
             <div className="card-image-container">
                 <Card.Img variant="top" src={property?.media[0]?.file_url} className="property-image" />
 

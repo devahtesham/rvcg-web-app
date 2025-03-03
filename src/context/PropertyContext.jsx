@@ -32,7 +32,7 @@ const PropertyContextProvider = ({ children }) => {
     // delete checked properties
     const downloadAllCheckedProperties = async (propertyIdList) => {
         const apiUrl = 'https://sea-turtle-app-9x3dp.ondigitalocean.app/property/download-properties-excel';
-        console.log('propertyIdList', propertyIdList)
+        // console.log('propertyIdList', propertyIdList)
 
         axios.post(apiUrl, { 'Ids': propertyIdList }, { responseType: 'blob' }) // Set responseType to 'blob' to receive binary data
             .then((response) => {
