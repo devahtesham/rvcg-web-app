@@ -14,6 +14,7 @@ const ModalContextProvider = ({ children }) => {
     }
     const handleModalOpen = () => setIsOpen(true);
     const handleModalClose = () => setIsOpen(false);
+    
     const objToSend = {
         isOpen,
         handleModalClose,
