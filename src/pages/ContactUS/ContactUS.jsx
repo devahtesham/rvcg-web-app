@@ -10,6 +10,10 @@ import { useNavigate } from 'react-router-dom'
 import TICK from "../../assets/img/tick.png"
 import { MdOutlineWifiCalling3 } from "react-icons/md";
 import { MdAlternateEmail } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
+import { CiLocationOn } from 'react-icons/ci'
+import { GrLocation } from 'react-icons/gr'
+
 
 
 export default function ContactUS() {
@@ -296,7 +300,7 @@ export default function ContactUS() {
               <div className='contact-box'>
                 <div>
                   <span>
-                    <MdAlternateEmail size={50} color='#16BFBF' />
+                    <GrLocation  size={45} color='#16BFBF' />
                   </span>
                 </div>
                 <div className="content mt-3">
