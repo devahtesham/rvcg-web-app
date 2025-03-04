@@ -1,8 +1,10 @@
 import Header from "./Header/Header";
 import BANNER_VIDEO from "../../assets/vedios/banner-vedio.mp4"
+import { useNavigate } from "react-router-dom";
 
 
 export default function Banner() {
+  const navigate = useNavigate()
   return (
     <section className="main-banner">
       <Header />
@@ -19,7 +21,7 @@ export default function Banner() {
                 <h5>Welcome to</h5>
                 <h1 className="mb-3">Realty Vision <br /> Capital Group</h1>
                 <p className="mb-3">Your Source For Premium Real Estate Services</p>
-                <button className="custom-btn primary-btn">REQUEST YOUR OFFER NOW</button>
+                <button className="custom-btn primary-btn" onClick={() => navigate('/contact-us')} >REQUEST YOUR OFFER NOW</button>
               </div>
 
             </div>
