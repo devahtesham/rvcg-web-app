@@ -884,5 +884,14 @@ export const DUMMY_FAV = [
     }
 ]
 
+export const getLaterMonthDate = (monthCount) => {
+    const nextMonthDate = new Date();
+    nextMonthDate.setMonth(nextMonthDate.getMonth() + monthCount);
+    const formattedDate = nextMonthDate.toISOString().split('T')[0];
+    return formattedDate
+
+}
+
+
 
 
