@@ -5,9 +5,11 @@ import SearchProperty from "../../components/SearchProperty/SearchProperty";
 import { SERVICES2_FEATURES_LIST, SERVICES_FEATURES_LIST } from "../../utils/utils";
 import CityListing from "../../components/CityListing/CityListing";
 import Clients from "../../components/Clients/Clients";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
+  const navigate = useNavigate()
   return (
     <>
       <Banner />
@@ -79,7 +81,7 @@ export default function Home() {
                 <h1 className="main-heading">PropTech: Revolutionizing Real Estate</h1>
                 <p className="mb-4">In today's dynamic real estate landscape, the convergence of technology and industry expertise has ushered in a new era of innovation and efficiency. As the digital age transforms every facet of our lives, the real estate sector is no exception, witnessing a paradigm shift driven by the emergence of Real Estate Technology, commonly referred to as PropTech. PropTech encompasses a diverse array of online tools, platforms, and software solutions meticulously designed to revolutionize how real estate professionals, investors, and property owners navigate the complexities of the market. From comprehensive property analysis to sophisticated market research, from seamless deal sourcing to efficient transaction management, and from expansive investor networking to strategic advisory services, the capabilities of PropTech are as vast as they are transformative. In this exciting realm, businesses like ours stand at the forefront, empowering stakeholders with invaluable resources and insights to navigate the intricacies of real estate with confidence and precision. Join us on a journey where innovation meets expertise, where technology unlocks untold opportunities, and where the future of real estate is redefined. Welcome to the world of Real Estate Technology and Consulting Excellence.</p>
 
-                <button className="custom-btn primary-btn">REQUEST OUR BROCHURE</button>
+                <button className="custom-btn primary-btn" onClick={() => navigate('/contact-us')}>REQUEST OUR BROCHURE</button>
               </div>
 
             </div>
@@ -121,7 +123,7 @@ export default function Home() {
                     }
                   </ul>
                 </div>
-                <button className="custom-btn primary-btn w-50">LIST YOUR PROPERTY NOW</button>
+                <button className="custom-btn primary-btn w-50" onClick={() => navigate('/contact-us')}>LIST YOUR PROPERTY NOW</button>
               </div>
             </div>
           </div>
@@ -147,7 +149,7 @@ export default function Home() {
                     }
                   </ul>
                 </div>
-                <button className="custom-btn primary-btn w-50">BECOME REFERRAL</button>
+                <button className="custom-btn primary-btn w-50" onClick={() => navigate('/contact-us')}>BECOME REFERRAL</button>
               </div>
             </div>
           </div>
@@ -167,7 +169,7 @@ export default function Home() {
                 <p className="mb-3">NFT Maestro: Your guide to the world of property-backed NFTs, PropertyPro ensures you’re always one step ahead.</p>
                 <p className="mb-3">Community Builder: Joining PropertyPro means exclusive insights, networking, and a supportive community of real estate enthusiasts. Innovation Evangelist: Backed by Realty Vision Capital Group, PropertyPro pioneers innovations, from virtual property tours to NFT auctions, transforming your real estate journey into an adventure.</p>
                 <p className="mb-4">Say goodbye to conventional real estate and embrace an exhilarating journey with PropertyPro (aka Invisible Mega Man). Join us, and let’s redefine real estate together with Realty Vision Capital Group. Your digital ally awaits!</p>
-                <button className="custom-btn primary-btn w-25 rounded-2 mb-5">LEARN MORE</button>
+                <button className="custom-btn primary-btn w-25 rounded-2 mb-5" onClick={() => navigate('/about-us')}>LEARN MORE</button>
               </div>
 
             </div>
@@ -191,7 +193,7 @@ export default function Home() {
           <div className="text-center">
             <h1 className="main-heading text-center text-white pt-5 mb-3">Explore Our Exclusive <span className="text-dark-green-clr">Premium Listings</span></h1>
             <p className="text-white">Discover unparalleled opportunities and luxury with our exclusive premium listings. Unlock the finest properties and investment prospects today!</p>
-            <button className="custom-btn primary-btn mt-4">VIEW PREMIUM LISTINGS</button>
+            <button className="custom-btn primary-btn mt-4" onClick={() => navigate('/our-listing')}>VIEW PREMIUM LISTINGS</button>
           </div>
         </div>
       </section>
