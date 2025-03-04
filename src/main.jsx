@@ -7,13 +7,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from "./store/index.js"
 import { PropertyContextProvider } from './context/PropertyContext.jsx';
+import ModalContextProvider from './context/ModalContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Provider store={store}>
-      <PropertyContextProvider>
-        <App />
-      </PropertyContextProvider>
+      <ModalContextProvider>
+        <PropertyContextProvider>
+          <App />
+        </PropertyContextProvider>
+      </ModalContextProvider>
     </Provider>
   </BrowserRouter>,
 )
