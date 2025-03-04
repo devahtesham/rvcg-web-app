@@ -12,12 +12,17 @@ function MLSSearch() {
 
     const dispatch = useDispatch();
     const { isLoading, mlsData } = useSelector((state) => state.PropertyMangementReducer);
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
+    const [page, setPage] = useState(1)
+    const [initialMlsList, setInitialMlsList] = useState([])
 
-    console.log('[mlsData]', mlsData)
+    // console.log('[mlsData]', mlsData)
     const [searchVal, setSearchVal] = useState("")
     useEffect(() => {
-        dispatch(GetMLSData())
+        dispatch(GetMLSData({ page, text: "" }))
+            .then((res) => {
+                setInitialMlsList(res.payload)
+            })
     }, [])
 
 
@@ -25,13 +30,17 @@ function MLSSearch() {
     useEffect(() => {
         const timer = setTimeout(() => {
             console.log('[searchVal]', searchVal)
-            dispatch(GetMLSData(searchVal))
+            dispatch(GetMLSData({ page, text: searchVal }))
+                .then((res) => {
+                    console.log('[res]', res)
+                    setInitialMlsList(res.payload)
+                })
         }, 1000);
 
         return () => {
             clearTimeout(timer)
         }
-    }, [dispatch, searchVal])
+    }, [dispatch, searchVal, page])
 
     const searchPropertyHandler = (e) => {
         setSearchVal(e.target.value)
@@ -39,6 +48,15 @@ function MLSSearch() {
 
     const handleFilterChange = (filters) => {
         dispatch(FilterMLSData(filters))
+    }
+
+    const loadMore = () => {
+        setPage(page + 1)
+        dispatch(GetMLSData({ page: page, text: searchVal }))
+            .then((res) => {
+                setInitialMlsList((prev) => [...prev, ...res.payload])
+            })
+
     }
 
     return (
@@ -74,13 +92,19 @@ function MLSSearch() {
                         isLoading ? <div className='h-100 d-flex justify-content-center align-items-center'>
                             <MapLoader />
                         </div> : (
-                            <Row className="">
-                                {mlsData?.length && mlsData?.map((property, index) => (
-                                    <Col key={index} md={4} sm={6} xs={12} className="mb-4">
-                                        <MLSCard property={property} />
-                                    </Col>
-                                ))}
-                            </Row>
+                            <>
+                                <Row className="justify-content-center">
+                                    {initialMlsList?.length ? initialMlsList?.map((property, index) => (
+                                        <Col key={index} md={4} sm={6} xs={12} className="mb-4">
+                                            <MLSCard property={property} />
+                                        </Col>
+                                    )) : <h1 className='text-center'>No Property Found !</h1>}
+
+                                </Row>
+                                <div className="mt-4 d-flex justify-content-center">
+                                    <button onClick={loadMore} className={`custom-btn bg-primary-clr ${!initialMlsList?.length || page === 6 ? "custom-disabled" : ''}`}>LOAD MORE</button>
+                                </div>
+                            </>
                         )
                     }
 
