@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL, BASE_URL_AUTH } from "../../../config/service";
-import { displayTime, DUMMY_CITY_DATA, formatDateForUI, getUser } from "../../../data/global";
+import { formatDateForUI, getUser } from "../../../data/global";
 
 
 const INITIAL_STATE = {
@@ -341,7 +341,7 @@ const PropertySlice = createSlice({
         })
         builder.addCase(GetMLSData.fulfilled, (state, action) => {
             state.isLoading = false
-            state.mlsData = action.payload?.results
+            // state.mlsData = action.payload?.results
         })
         builder.addCase(GetMLSData.rejected, (state) => {
             state.isLoading = false
@@ -1262,7 +1262,7 @@ export const FilterMapListing = createAsyncThunk('/listings/search/GET', async (
 
 
         const { token } = getUser()
-        let url = token ? `${BASE_URL}/website/listings/auth/search` : `${BASE_URL}/website/listings/search`
+        let url = `${BASE_URL}/website/listings/search`
 
         const response = await axios.post(url, payload, { headers });
         return response.data
@@ -1399,17 +1399,20 @@ export const DeleteVendor = createAsyncThunk('/vendors/DELETE', async (param, { 
 
 
 // GET
-export const GetMLSData = createAsyncThunk('/mls-data/GET', async (text, { rejectWithValue }) => {
+export const GetMLSData = createAsyncThunk('/mls-data/GET', async ({ text, page }, { rejectWithValue }) => {
     try {
         const headers = {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
-        const query = text ? `/search?query=${text}` : ''
+        const pageNo = `?page=${page ? page : 1}`
+        const search = text ? `&query=${text}` : ''
 
-        const response = await axios.get(`${BASE_URL}/website/mls-data-website?page=1`, { headers });
-        return response.data
+        const query = `${pageNo}${search}`
+
+        const response = await axios.get(`${BASE_URL}/website/mls-data-website/search${query}`, { headers });
+        return response.data.results
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
     }
@@ -1424,7 +1427,7 @@ export const FilterMLSData = createAsyncThunk('/mls/filter-data/POST', async (pa
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
-        const response = await axios.post(`${BASE_URL_AUTH}/mls/filter-data`, payload, { headers });
+        const response = await axios.post(`${BASE_URL}/website/mls-website/filter-data`, payload, { headers });
         return response.data
     } catch (error) {
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
@@ -1538,4 +1541,3 @@ export const DeletePackageItems = createAsyncThunk('/Package-items/DELETE', asyn
         return rejectWithValue(error.response.data.message || 'Something Went Wrong !')
     }
 })
-
