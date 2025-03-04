@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { EvaluateProperty, GetAllCities, GetPropertyTypes } from '../../store/slices/propertyManagementSlice/propertyManagementSlice'
+import { EvaluateProperty, FileUpload, GetAllCities, GetPropertyTypes } from '../../store/slices/propertyManagementSlice/propertyManagementSlice'
 import { Col, Row } from 'react-bootstrap'
 import InputComp from '../../components/UI/InputComp/InputComp'
 import DropDownComp from '../../components/UI/DropDownComp/DropDownComp'
@@ -16,12 +16,15 @@ import { RiHome4Line } from "react-icons/ri";
 import { errorNotify, successNotify } from '../../Toastify/Toastify'
 
 import { ImLoop2 } from "react-icons/im";
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 export default function BuyProperty() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  
   const { cities, propertyTypes } = useSelector((state) => state.PropertyMangementReducer)
   const [details, setDetails] = useState({
     title: '',
@@ -120,7 +123,7 @@ export default function BuyProperty() {
             <div className="row justify-content-center">
               <div className="col-xxl-5">
                 <div className="about-us-banner d-flex flex-column align-items-center">
-                  <h1 className="mb-3 text-center main-card-heading">Buy from Us</h1>
+                  <h1 className="mb-3 text-center main-card-heading" >Buy from Us</h1>
                   Why Choose Realty Vision Capital Group?
                 </div>
 
@@ -147,7 +150,7 @@ export default function BuyProperty() {
               <div className="">
                 <h2 className="main-heading mb-3">Buy Home from Us</h2>
                 <p>At Realty Vision Capital Group, we’re committed to helping our clients find the perfect home that fits their needs and budget. Here are just a few reasons why you should consider buying a home from us</p>
-                <button className={`mt-2 custom-btn bg-primary-clr cursor-pointer`}>CONTACT WITH US</button>
+                <button className={`mt-2 custom-btn bg-primary-clr cursor-pointer`} onClick={() => navigate('/contact-us')}>CONTACT WITH US</button>
               </div>
             </div>
 
@@ -252,15 +255,15 @@ export default function BuyProperty() {
             </div>
             <div className="col-6">
               <p className="mb-3">
-              Once you’ve identified your preferred market, our marketplace makes it easy to locate the perfect investment property. Set up alert notifications and browse exclusive listings not available on the MLS.
+                Once you’ve identified your preferred market, our marketplace makes it easy to locate the perfect investment property. Set up alert notifications and browse exclusive listings not available on the MLS.
               </p>
 
               <p className="mb-3">
-              Finally, when it comes to funding your investment. We provide access to the largest network of verified hard and private money lenders, so you can easily connect with lenders who are ready and willing to provide financing.
+                Finally, when it comes to funding your investment. We provide access to the largest network of verified hard and private money lenders, so you can easily connect with lenders who are ready and willing to provide financing.
               </p>
 
               <p>
-              investment property or to grow your existing real estate business.
+                investment property or to grow your existing real estate business.
               </p>
             </div>
           </div>
