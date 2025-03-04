@@ -5,6 +5,8 @@ import RegisterForm from "../pages/RegisterForm/RegisterForm"
 import Favourites from "../pages/Favourites/Favourites.jsx"
 import DisplayDetails from "../pages/DisplayDetails/DisplayDetails.jsx"
 import CheckoutPageSkipTrace from "../pages/payments/CheckoutPageSkipTrace.jsx"
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy.jsx"
+import Terms from "../pages/Terms/Terms.jsx"
 
 
 
@@ -97,6 +99,16 @@ export const PUBLIC_ROUTES = [
         key: "payments",
         path: '/payments/:id',
         Component: CheckoutPageSkipTrace
+    },
+    {
+        key: "privacy-policy",
+        path: '/privacy-policy',
+        Component: PrivacyPolicy
+    },
+    {
+        key: "terms",
+        path: '/terms',
+        Component: Terms
     },
 
 

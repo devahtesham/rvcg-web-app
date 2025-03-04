@@ -455,7 +455,7 @@ export const FOOTER_IMPORTANT_LINKS = [
     },
     {
         name: "Terms & Conditions",
-        url: "/terms-conditions"
+        url: "/terms"
     },
     {
         name: "Contact Us",
