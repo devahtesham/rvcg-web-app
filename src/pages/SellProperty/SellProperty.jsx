@@ -15,11 +15,13 @@ import { HiOutlineUsers } from "react-icons/hi2";
 import { RiHome4Line } from "react-icons/ri";
 import { errorNotify, successNotify } from '../../Toastify/Toastify'
 import FAQSection from '../../components/FAQ/FAQ'
+import { useNavigate } from 'react-router-dom'
 
 
 
 export default function SellProperty() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { cities, propertyTypes } = useSelector((state) => state.PropertyMangementReducer)
   const [details, setDetails] = useState({
     title: '',
@@ -119,7 +121,9 @@ export default function SellProperty() {
               <div className="col-xxl-5">
                 <div className="about-us-banner d-flex flex-column align-items-center">
                   <h1 className="mb-3 text-center main-card-heading">Sell Your Distressed Property With Us</h1>
-                  <button className={`mt-2 custom-btn bg-primary-clr`}>REQUEST YOUR OFFER NOW</button>
+                  <button className={`mt-2 custom-btn bg-primary-clr`} onClick={() => {
+                    window.scrollTo({ top: document.body.scrollHeight - 2800, behavior: "smooth" });
+                  }}>REQUEST YOUR OFFER NOW</button>
                 </div>
 
               </div>
