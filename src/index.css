@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     overflow-x: hidden !important;
 }
 
@@ -89,7 +89,8 @@ p {
     outline: 0;
     border: 1px solid #fff;
     border-radius: 3px;
-    padding: 7px 23px
+    padding: 7px 23px;
+    font-size: 18px;
 }
 
 .secondary-btn {
@@ -436,9 +437,11 @@ header.active .nav-items li a {
 .about-bg.contact-page {
     background: url(./assets/img/contact-bg.png) no-repeat center center/cover;
 }
+
 .about-bg.sell-property {
     background: url(./assets/img/sell-bg.png) no-repeat center center/cover;
 }
+
 .about-bg.buy-property {
     background: url(./assets/img/buy-bg.png) no-repeat center center/cover;
 }
@@ -483,6 +486,7 @@ header.active .nav-items li a {
 .opportunities {
     background: url(./assets/img/opportunity.webp) no-repeat center center/cover;
 }
+
 .opportunities.referral {
     background: url(./assets/img/referral-bg.webp) no-repeat center center/cover;
 }
@@ -762,28 +766,29 @@ header.active .nav-items .resources-nav-item li a:hover {
     border-radius: 50%;
 }
 
-.process-card{
+.process-card {
     transition-duration: .5s;
 }
 
-.process-card:hover{
+.process-card:hover {
     transform: translateY(-10px);
 }
 
 .faq-sec .custom-accordion .accordion-header {
     background-color: var(--golden-clr) !important
-    /* Light Grey Background */
+        /* Light Grey Background */
 }
-.nft-section{
+
+.nft-section {
     background-color: #e6e6e6;
 }
 
-.why-nft-sec{
+.why-nft-sec {
     background: url(./assets/img/nft-bg-img.png) no-repeat center center/cover;
     padding: 50px 0;
 }
 
-.why-nft-sec .process-card{
+.why-nft-sec .process-card {
     flex: 0 0 273px;
 }
 
@@ -791,12 +796,55 @@ header.active .nav-items .resources-nav-item li a:hover {
     border-radius: 10px;
 }
 
-.contact-box .content a{
+.contact-box .content a {
     color: var(--dark-green-clr) !important;
     font-weight: 700;
     font-size: 20px;
 }
-.contact-box .content p{
-    
+
+.contact-box .content p {
+
     font-size: 23px;
+}
+
+.display-detail-sec h6 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.b-4 {
+    border: 1px solid #0000006e !important;
+}
+
+.custom-disabled {
+    background-color: #a4a4a4;
+    pointer-events: none;
+    color: #000;
+    opacity: 0.4;
+}
+
+.blur-text {
+    background-color: #4444445c;
+    padding: 6px;
+    filter: blur(4px);
+    opacity: .7;
+    display: block;
+    width: 200px;
+    height: 23px;
+}
+
+.bg-skip-tracing-btn {
+    background-color: #ff7e07 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
