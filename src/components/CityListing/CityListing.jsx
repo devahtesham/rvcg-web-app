@@ -11,10 +11,10 @@ export default function CityListing() {
                         <h1 className="main-heading text-center">Live the life your <span className="text-dark-green-clr">deserve</span></h1>
                     </div>
                     {
-                        CITY_PROPERTY_LISTING.map(city => (
-                            <div className="col-3 mb-4">
+                        CITY_PROPERTY_LISTING.map((city, index) => (
+                            <div className="col-3 mb-4" key={index}>
                                 <div className="city-property-box rounded-2 overflow-hidden position-relative">
-                                    <Link to={`/city/${city.name?.toLocaleLowerCase()}`} className="w-100 h-100 d-block">
+                                    <Link to={'/our-listing'} className="w-100 h-100 d-block">
                                         <img src={CITY_01} alt="city-01" className="" />
                                         <div className="city-name-inner-box">
                                             {city.name}
