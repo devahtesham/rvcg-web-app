@@ -3,6 +3,8 @@ import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, MLSSearch, NFT, Pr
 import CityPropertyListing from "../pages/CityPropertyListing/CityPropertyListing"
 import RegisterForm from "../pages/RegisterForm/RegisterForm"
 import Favourites from "../pages/Favourites/Favourites.jsx"
+import DisplayDetails from "../pages/DisplayDetails/DisplayDetails.jsx"
+import CheckoutPageSkipTrace from "../pages/payments/CheckoutPageSkipTrace.jsx"
 
 
 
@@ -84,6 +86,17 @@ export const PUBLIC_ROUTES = [
         key: "favorites",
         path: '/favorites',
         Component: Favourites
+    },
+    {
+        key: "display-details",
+        path: '/display-details/:id',
+        Component: DisplayDetails
+    },
+
+    {
+        key: "payments",
+        path: '/payments/:id',
+        Component: CheckoutPageSkipTrace
     },
 
 
