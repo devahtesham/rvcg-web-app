@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import "./Map.css"
 import amcActive from "../../../assets/img/amcHouse1.png"
-import { Button, Col, Dropdown, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { Col, Dropdown, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
 
 import MapLoader from '../../../components/Loaders/MapLoader';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +15,7 @@ import { PropertyContext } from '../../../context/PropertyContext';
 import DropDownComp from '../../../components/UI/DropDownComp/DropDownComp';
 import CheckBoxComp from '../../../components/UI/CheckBoxComp/CheckBoxComp';
 import PropertyListingCard from '../../../components/PropertyListingCard/PropertyListingCard';
-import { FaHeart, FaRegHeart } from 'react-icons/fa6';
+import { FaRegHeart } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import { errorNotify, successNotify } from '../../../Toastify/Toastify';
 
@@ -71,12 +71,12 @@ const DisplayMap = () => {
                         console.log('[response Delete]', response)
                         const filteredItems = favorites.filter((favId) => favId !== id);
                         setFavorites([...filteredItems])
-                        // if (response.meta.requestStatus === "fulfilled") {
-                        //     successNotify("Added to Favourites !")
-                        // } else {
-                        //     errorNotify(response.payload)
+                        if (response.meta.requestStatus === "fulfilled") {
+                            successNotify("Remove From Favourites !")
+                        } else {
+                            errorNotify(response.payload)
 
-                        // }
+                        }
                     })
                     .catch((error) => {
                         console.log(error)
@@ -757,31 +757,6 @@ const DisplayMap = () => {
         }
     }
 
-    const savePropertyHandler = (id) => {
-        console.log('[id]', id)
-        const payload = {
-            listing_id: id,
-            is_favourite: 1
-        }
-
-        dispatch(AddToFav(payload))
-            .then((response) => {
-                console.log('[response]', response)
-                if (response.meta.requestStatus === "fulfilled") {
-                    successNotify("Added to Favourites !")
-                } else {
-                    errorNotify(response.payload)
-
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-                errorNotify(error)
-            })
-
-
-    }
-
     const viewFavourites = () => {
         const { token } = getUser();
         if (!token) {
@@ -1006,7 +981,7 @@ const DisplayMap = () => {
                                     property={property}
                                     isFavorite={favorites.includes(property.id)}
                                     onFavoriteToggle={() => toggleFavorite(property.id)}
-                                    onClick={() => console.log(`Clicked on property ${property.id}`)}
+                                    onClick={() => navigate(`/display-details/${property.id}`)}
                                 />
 
                             )))}
