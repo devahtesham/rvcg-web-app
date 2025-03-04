@@ -1,11 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { PROPERTY_BATHS, PROPERTY_BEDS, PROPERTY_MAX_PRICE, PROPERTY_TYPE, PROPERTY_WHERE } from "../../utils/utils";
 import CustomSelect from "../UI/CustomSelect/CustomSelect";
 
 
 export default function SearchCard() {
+    const navigate = useNavigate();
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        navigate('/our-listing');
+    }
+
     return (
         <div className="card py-4 border-0 rounded-1 px-4">
-            <form>
+            <form onSubmit={submitHandler}>
                 <div className="row mb-3">
                     <div className="col-6">
                         <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter a keyword" />
