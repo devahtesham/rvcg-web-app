@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { moveToTop } from '../../data/global';
 
 const MLSSearch = () => {
-
     const dispatch = useDispatch();
     const { isLoading, mlsData } = useSelector((state) => state.PropertyMangementReducer);
     const navigate = useNavigate()
