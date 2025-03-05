@@ -6,10 +6,9 @@ import CustomMLSFilter from '../../components/CustomMLSFilter';
 import { BiSearch } from 'react-icons/bi';
 import MapLoader from '../../components/Loaders/MapLoader';
 import MLSCard from '../../components/MLSCard';
-import { useNavigate } from 'react-router-dom';
 import { moveToTop } from '../../data/global';
 
-const MLSSearch = () => {
+const Mls = () => {
     const dispatch = useDispatch();
     const { isLoading } = useSelector((state) => state.PropertyMangementReducer);
     const [page, setPage] = useState(1)
@@ -119,4 +118,4 @@ const MLSSearch = () => {
     )
 }
 
-export default MLSSearch
+export default Mls

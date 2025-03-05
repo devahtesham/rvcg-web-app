@@ -1,5 +1,5 @@
 import React from "react"
-import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty,MLSSearch } from "../pages"
+import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, Mls, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty } from "../pages"
 import CityPropertyListing from "../pages/CityPropertyListing/CityPropertyListing"
 import RegisterForm from "../pages/RegisterForm/RegisterForm"
 import Favourites from "../pages/Favourites/Favourites.jsx"
@@ -54,7 +54,7 @@ export const PUBLIC_ROUTES = [
     {
         key: "mls-search",
         path: '/mls-search',
-        Component: MLSSearch
+        Component: Mls
     },
     {
         key: "about-us",
