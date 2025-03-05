@@ -1,5 +1,5 @@
 import React from "react"
-import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty } from "../pages/index.jsx"
+import { AboutUS, Blogs, BuyProperty, ContactUS, Home, Login, NFT, PropertyListing, ReferralAssociates, Resources, SellProperty,MLSSearch } from "../pages"
 import CityPropertyListing from "../pages/CityPropertyListing/CityPropertyListing"
 import RegisterForm from "../pages/RegisterForm/RegisterForm"
 import Favourites from "../pages/Favourites/Favourites.jsx"
@@ -8,7 +8,6 @@ import CheckoutPageSkipTrace from "../pages/payments/CheckoutPageSkipTrace.jsx"
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy.jsx"
 import Terms from "../pages/Terms/Terms.jsx"
 import BecomeReferral from "../pages/BecomeReferral/BecomeReferral.jsx"
-import MLSSearch from "../pages/MLSSearch/MLSSearch.jsx"
 
 
 export const PUBLIC_ROUTES = [
