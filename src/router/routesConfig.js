@@ -7,6 +7,7 @@ import DisplayDetails from "../pages/DisplayDetails/DisplayDetails.jsx"
 import CheckoutPageSkipTrace from "../pages/payments/CheckoutPageSkipTrace.jsx"
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy.jsx"
 import Terms from "../pages/Terms/Terms.jsx"
+import BecomeReferral from "../pages/BecomeReferral/BecomeReferral.jsx"
 
 
 
@@ -110,8 +111,9 @@ export const PUBLIC_ROUTES = [
         path: '/terms',
         Component: Terms
     },
-
-
-
-
+    {
+        key: "become-referral",
+        path: '/become-referral',
+        Component: BecomeReferral
+    },
 ]
