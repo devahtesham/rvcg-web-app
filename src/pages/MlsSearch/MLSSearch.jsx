@@ -9,7 +9,7 @@ import MLSCard from '../../components/MLSCard';
 import { useNavigate } from 'react-router-dom';
 import { moveToTop } from '../../data/global';
 
-function MLSSearch() {
+const MLSSearch = () => {
 
     const dispatch = useDispatch();
     const { isLoading, mlsData } = useSelector((state) => state.PropertyMangementReducer);
@@ -23,7 +23,7 @@ function MLSSearch() {
 
     useEffect(() => {
         moveToTop()
-      }, [])
+    }, [])
 
     useEffect(() => {
         dispatch(GetMLSData({ page, text: "" }))
