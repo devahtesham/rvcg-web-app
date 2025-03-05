@@ -11,8 +11,7 @@ import { moveToTop } from '../../data/global';
 
 const MLSSearch = () => {
     const dispatch = useDispatch();
-    const { isLoading, mlsData } = useSelector((state) => state.PropertyMangementReducer);
-    const navigate = useNavigate()
+    const { isLoading } = useSelector((state) => state.PropertyMangementReducer);
     const [page, setPage] = useState(1)
     const [initialMlsList, setInitialMlsList] = useState([])
 
