@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogIn } from "../../store/slices/authSlice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { errorNotify, successNotify, warnNotify } from "../../Toastify/Toastify";
-import { getUser, setUser } from "../../data/global";
+import { getUser, moveToTop, setUser } from "../../data/global";
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -20,6 +20,7 @@ const Login = () => {
   const { authLoading } = useSelector(state => state.AuthReducer)
 
   useEffect(() => {
+    moveToTop() 
     const { token } = getUser()
     if (token) {
       warnNotify("You are already logged in !")

@@ -12,7 +12,7 @@ import MultiImageUpload from "../../components/MultiImageUploader/MultiImageUplo
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { EvaluateProperty, FileUpload, GetAllCities, GetPropertyFeatures, GetPropertyStatuses, GetPropertyTypes } from "../../store/slices/propertyManagementSlice/propertyManagementSlice";
-import { OWNERSHIP_TYPE } from "../../data/global";
+import { moveToTop, OWNERSHIP_TYPE } from "../../data/global";
 import { errorNotify, successNotify } from "../../Toastify/Toastify";
 
 
@@ -39,6 +39,10 @@ export default function AboutUS() {
     owner_contact: '',
   })
   const [propertyImages, setPropertyImages] = useState([])
+
+  useEffect(() => {
+    moveToTop()
+  }, [])
 
   useEffect(() => {
     dispatch(GetAllCities())

@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { moveToTop } from '../../data/global'
 
 const PrivacyPolicy = () => {
+
+  useEffect(() => {
+      moveToTop()
+    }, [])
   return (
     <section className='main-content'>
       <div className="container mt-5">

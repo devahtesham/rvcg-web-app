@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { successNotify, warnNotify } from "../../Toastify/Toastify";
 import { RegisterUser } from "../../store/slices/authSlice/authSlice";
-import { getUser } from "../../data/global";
+import { getUser, moveToTop } from "../../data/global";
 
 
 
@@ -26,6 +26,9 @@ const RegisterForm = () => {
   const navigate = useNavigate()
   const { authLoading } = useSelector(state => state.AuthReducer)
 
+  useEffect(() => {
+    moveToTop()
+  }, [])
 
   useEffect(() => {
     const { token } = getUser()

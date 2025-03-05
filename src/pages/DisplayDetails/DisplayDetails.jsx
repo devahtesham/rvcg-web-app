@@ -7,7 +7,7 @@ import MapLoader from "../../components/Loaders/MapLoader"
 import BannerSlider from "../BannerSlider/BannerSlider"
 import { Col, Container, Row } from "react-bootstrap"
 import { FaHeart } from "react-icons/fa"
-import { formatDateForUI, getUser } from "../../data/global"
+import { formatDateForUI, getUser, moveToTop } from "../../data/global"
 import DocumentPreview from "../DocumentPreview/DocumentPreview"
 import KPIChart from "../KPI/KPIChart"
 import { MdImageSearch } from "react-icons/md"
@@ -26,6 +26,10 @@ const DisplayDetails = () => {
 
 
     const { isLoading, propertyDetails } = useSelector((state) => state.PropertyMangementReducer)
+
+    useEffect(() => {
+        moveToTop()
+    }, [])
 
     useEffect(() => {
 

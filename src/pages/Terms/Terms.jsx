@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { moveToTop } from '../../data/global'
 
 const Terms = () => {
+
+
+  useEffect(() => {
+    moveToTop()
+  }, [])
+
   return (
     <div className='container'>
       <section className='mt-5'>
@@ -70,7 +77,7 @@ const Terms = () => {
           </p>
         </div>
         <p>
-        RVCG First
+          RVCG First
         </p>
 
       </section>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NFT_IMG from "../../assets/img/nftt.png"
 import { HiOutlineUsers } from 'react-icons/hi'
 import { ImLoop2 } from 'react-icons/im'
@@ -6,9 +6,15 @@ import { AiOutlineDollar } from 'react-icons/ai'
 import { RiHome4Line } from 'react-icons/ri'
 
 import TICK from "../../assets/img/tick.png"
+import { moveToTop } from '../../data/global'
 
 
 export default function NFT() {
+
+  useEffect(() => {
+    moveToTop()
+  }, [])
+
   return (
     <>
       <section className="nft-section">

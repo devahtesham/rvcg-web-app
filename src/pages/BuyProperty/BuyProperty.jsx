@@ -4,7 +4,7 @@ import { EvaluateProperty, FileUpload, GetAllCities, GetPropertyTypes } from '..
 import { Col, Row } from 'react-bootstrap'
 import InputComp from '../../components/UI/InputComp/InputComp'
 import DropDownComp from '../../components/UI/DropDownComp/DropDownComp'
-import { OWNERSHIP_TYPE } from '../../data/global'
+import { moveToTop, OWNERSHIP_TYPE } from '../../data/global'
 import MultiImageUpload from '../../components/MultiImageUploader/MultiImageUploader'
 import BUY_TOP from "../../assets/img/buy-top.png"
 import { HiOutlineLightBulb } from "react-icons/hi";
@@ -24,7 +24,7 @@ import { useNavigate } from 'react-router-dom'
 export default function BuyProperty() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  
+
   const { cities, propertyTypes } = useSelector((state) => state.PropertyMangementReducer)
   const [details, setDetails] = useState({
     title: '',
@@ -43,6 +43,10 @@ export default function BuyProperty() {
     govt_id_proof: '',
     owner_contact: '',
   })
+
+  useEffect(() => {
+    moveToTop()
+  }, [])
   const [propertyImages, setPropertyImages] = useState([])
 
   useEffect(() => {

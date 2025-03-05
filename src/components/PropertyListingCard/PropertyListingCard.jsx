@@ -4,6 +4,7 @@ import { FaBed, FaRegHeart, FaShower } from "react-icons/fa6";
 import './RealEstateCard.css'; // We'll define custom styles in this file
 import { HiOutlineCube } from 'react-icons/hi2';
 import { FaHeart } from "react-icons/fa";
+import { isJustListed } from '../../data/global';
 
 
 
@@ -14,7 +15,7 @@ const PropertyListingCard = ({
     onClick,
     key,
     property,
-    isJustListed = true,
+    
 }) => {
     return (
         <Card className="real-estate-card" onClick={onClick} key={property.id}>
@@ -25,7 +26,7 @@ const PropertyListingCard = ({
                 <Badge bg="primary" className="for-sale-badge">{property?.property_status?.status?.toUpperCase()}</Badge>
 
                 {/* Just Listed Badge */}
-                {isJustListed && (
+                {isJustListed(property?.created_at) && (
                     <Badge bg="light" className="just-listed-badge">Just listed</Badge>
                 )}
 

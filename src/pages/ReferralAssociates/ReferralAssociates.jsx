@@ -6,7 +6,7 @@ import { EvaluateProperty, GetAllCities, GetPropertyTypes } from '../../store/sl
 import { Col, Row } from 'react-bootstrap'
 import InputComp from '../../components/UI/InputComp/InputComp'
 import DropDownComp from '../../components/UI/DropDownComp/DropDownComp'
-import { OWNERSHIP_TYPE } from '../../data/global'
+import { moveToTop, OWNERSHIP_TYPE } from '../../data/global'
 import MultiImageUpload from '../../components/MultiImageUploader/MultiImageUploader'
 import REFEREAL_TOP from "../../assets/img/referal.png"
 import { HiOutlineLightBulb } from "react-icons/hi";
@@ -42,6 +42,10 @@ export default function ReferralAssociates() {
     owner_contact: '',
   })
   const [propertyImages, setPropertyImages] = useState([])
+
+   useEffect(()=>{
+      moveToTop() 
+    },[])
 
   useEffect(() => {
     dispatch(GetAllCities())

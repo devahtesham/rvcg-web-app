@@ -892,6 +892,23 @@ export const getLaterMonthDate = (monthCount) => {
 
 }
 
+export const moveToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+export const isJustListed = (createdAt) => {
+    const createdAtDate = new Date(createdAt);
+    const currentDate = new Date();
+    
+    // Calculate the difference in milliseconds
+    const timeDifference = currentDate - createdAtDate;
+    
+    // Convert 2 hours to milliseconds (5 * 60 * 60 * 1000)
+    const twoHoursInMs = 2 * 60 * 60 * 1000;
+    
+    return timeDifference <= twoHoursInMs;
+};
+
 
 
 

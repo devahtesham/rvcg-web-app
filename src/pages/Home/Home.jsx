@@ -6,10 +6,16 @@ import { SERVICES2_FEATURES_LIST, SERVICES_FEATURES_LIST } from "../../utils/uti
 import CityListing from "../../components/CityListing/CityListing";
 import Clients from "../../components/Clients/Clients";
 import { useNavigate } from "react-router-dom";
+import { moveToTop } from "../../data/global";
+import { useEffect } from "react";
 
 
 export default function Home() {
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    moveToTop() 
+  },[])
   return (
     <>
       <Banner />

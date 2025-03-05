@@ -1,33 +1,51 @@
 
 
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, InputGroup } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaCopy } from 'react-icons/fa';
 import './ReferralProgram.css'; // Custom CSS
-import { getUser } from '../../data/global';
+import { getUser, moveToTop } from '../../data/global';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetUserProfileDetails } from '../../store/slices/propertyManagementSlice/propertyManagementSlice';
+import { useNavigate } from 'react-router-dom';
+import { successNotify } from '../../Toastify/Toastify';
 
 const BecomeReferral = () => {
     const [email, setEmail] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const [referralLink, setReferralLink] = useState('');
     const { user } = getUser()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    const { userProfileDetails, isLoading } = useSelector((state) => state.PropertyMangementReducer)
+    const { userProfileDetails } = useSelector((state) => state.PropertyMangementReducer)
+
+    useEffect(() => {
+        moveToTop()
+        dispatch(GetUserProfileDetails(user?.id))
+    }, [])
+
+    useEffect(() => {
+        const { token } = getUser();
+        if (!token) {
+            navigate("/login")
+        }
+    }, [])
 
     const handleSubmit = (e) => {
-        dispatch(GetUserProfileDetails(user?.userId))
         e.preventDefault();
-        // Generate a referral link (Modify logic based on your backend)
-        const generatedLink = userProfileDetails?.referral_code;
-        setReferralLink(generatedLink);
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+            const generatedLink = userProfileDetails?.referral_code ? userProfileDetails?.referral_code : "Empty";
+            setReferralLink(generatedLink);
+        }, 500);
     };
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(referralLink);
-        alert('Referral link copied!');
+        successNotify('Referral link copied!');
     };
 
     return (

@@ -7,6 +7,7 @@ import { BiSearch } from 'react-icons/bi';
 import MapLoader from '../../components/Loaders/MapLoader';
 import MLSCard from '../../components/MLSCard';
 import { useNavigate } from 'react-router-dom';
+import { moveToTop } from '../../data/global';
 
 function MLSSearch() {
 
@@ -18,6 +19,12 @@ function MLSSearch() {
 
     // console.log('[mlsData]', mlsData)
     const [searchVal, setSearchVal] = useState("")
+
+
+    useEffect(() => {
+        moveToTop()
+      }, [])
+
     useEffect(() => {
         dispatch(GetMLSData({ page, text: "" }))
             .then((res) => {

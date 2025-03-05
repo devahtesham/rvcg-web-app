@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import InputComp from '../../components/UI/InputComp/InputComp'
 import DropDownComp from '../../components/UI/DropDownComp/DropDownComp'
@@ -13,6 +13,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { CiLocationOn } from 'react-icons/ci'
 import { GrLocation } from 'react-icons/gr'
+import { moveToTop } from '../../data/global'
 
 
 
@@ -28,6 +29,10 @@ export default function ContactUS() {
     timeline: '',
     message: ''
   })
+
+  useEffect(() => {
+    moveToTop()
+  }, [])
 
 
   const submitHandler = (e) => {

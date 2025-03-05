@@ -5,7 +5,7 @@ import { formatDateForUI, getUser } from "../../../data/global";
 
 
 const INITIAL_STATE = {
-    isLoading: true,
+    isLoading: false,
     propertyTypes: [],
     allProperty: [],
     propertyDetails: {},

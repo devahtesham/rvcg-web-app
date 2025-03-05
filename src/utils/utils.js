@@ -452,10 +452,7 @@ export const FOOTER_IMPORTANT_LINKS = [
         name: "Terms & Conditions",
         url: "/terms"
     },
-    {
-        name: "Contact Us",
-        url: "/contact-us"
-    },
+    
 ]
 export const FOOTER_QUICK_LINKS = [
     {
@@ -463,12 +460,12 @@ export const FOOTER_QUICK_LINKS = [
         url: "/become-referral"
     },
     {
-        name: "Create your Listing",
-        url: "/create-listing"
+        name: "NFTs",
+        url: "/nft"
     },
     {
-        name: "NFTs",
-        url: "/nfts"
+        name: "Contact Us",
+        url: "/contact-us"
     },
 
 ]
