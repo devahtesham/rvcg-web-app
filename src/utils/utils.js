@@ -467,10 +467,10 @@ export const FOOTER_QUICK_LINKS = [
         name: "Become a Referral",
         url: "/become-referral"
     },
-    {
-        name: "Login as Referral",
-        url: "/login-referral"
-    },
+    // {
+    //     name: "Login as Referral",
+    //     url: "/login-referral"
+    // },
     {
         name: "Create your Listing",
         url: "/create-listing"
